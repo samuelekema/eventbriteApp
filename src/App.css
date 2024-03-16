@@ -1,38 +1,635 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#navbar-container{
+  max-width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#navbar{
+  position: fixed;
+  width: 100%;
+  height: 50px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; 
+  text-align: center;
+  padding: 0 12px 0 12px;
+  white-space: nowrap;
+  background-color:orangered;
+  z-index: 1000;
+}
+
+#navbar li{
+  list-style: none;
+  display: inline-block;
+}
+
+#navbar li a{
+  margin: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: 900;
+  transition: all .50s;
+}
+
+#navbar li a:hover{
+  color: black;
+}
+
+#menu-bar{
+  cursor: pointer;
+  display: none;
+  background-color: purple;
+  border-radius: 10px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.bar{
+  width: 30px;
+  height: 4px;
+  background-color: white;
+  margin: 4px;
+  transition: all .50s;
+}
+
+.change .bar1{
+  transform: translate(0,5px)rotate(45deg);
+}
+
+.change .bar2{
+  opacity: 0;
+}
+
+.change .bar3{
+  transform: translate(0,-11px)rotate(-45deg);
+}
+
+
+.logo{
+  font-size: 30px;
+  font-weight: 900;
+  color: black;
+  text-shadow:
+  0px 0px 1px,
+  0px 0px 1px,
+  0px 0px 1px,
+  0px 0px 1px,
+  0px 0px 1px,
+  0px 0px 1px,
+  0px 0px 1px,
+  0px 0px 1px,
+  0px 0px 1px,
+  2px 2px 2px white;
+}
+
+.left-nav span{
+  position: relative;
+  bottom: 3px;
+  letter-spacing: 10px;
+}
+
+
+.brand{
+  font-size: 30px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+
+@media(max-width:802px){
+  /**MEDIA QUERY TO CHANGE FONT WEIGHT AND SIZE IF SCREEN IS LESS THAN 652PX***/
+  #navbar li a{
+    font-weight: 600;
+    font-size: 9px;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+@media(max-width:609px){
+  /***MEDIA QUERY TO REMOVE NAV LINKS AND SET MENU BAR TO VISIBLE****
+      AND TO CHANGE FONT-SIZE FOR LOGO TO FIT SCREEN***/
+  #navbar li, #navbar li a{
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+  #navbar #menu-bar{
+    display: inline-block;
   }
+
+  .left-nav span{
+    letter-spacing: 5px;
+    font-size: 20px;
+  } 
+
+}
+
+
+/***HOME****/
+#home{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: 1fr;
+  height: 400px;
+  width: 100%;
+}
+
+.left-home-grid{
+  background-image: url(images/home.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.right-home-grid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #310e68;
+  background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+  color: white;
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  font-size: 25px;
+  margin-top: 40px;
+
+}
+
+.sub-title{
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  margin-top: 10px;
+  padding-left: 40px;
+}
+
+.sub-title p{
+  width: 300px;
+}
+
+.get-started{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+
+.get-started button{
+  width: 200px;
+  height: 30px;
+  background-color: orangered;
+  color:white;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: all .50s;
+  margin-bottom: 15px;
+}
+
+.get-started button:hover{
+  background-color: rgb(215, 60, 4);
+}
+
+
+@media(max-width:609px){
+  /***MEDIA QUERY TO CHANGE GRID IN SMALL SCREEN DEVICES***/
+    #home{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2,1fr);
+      border: solid black;
+      height: 100%;
+    }
+  }
+  
+  @media(max-width:884px){
+  /***MEDIA QUERY TO REDUCE FONT SIZE TO FIT SCREEN ON SMALLER DEVICES***/
+    .title{
+      font-size: 20px;
+    }
+  }
+  
+  @media(max-width:678px){
+  /***MEDIA QUERY TO REDUCE FONT SIZE TO FIT SCREEN ON SMALLER DEVICES***/
+    .title{
+      font-size: 15px;
+    }
+  }
+
+
+/***DROPDOWNN MENU****/
+
+
+.dropdown-bar{
+  position: fixed;
+  display: none;
+  top: 10%;
+  right: 5%;
+  border: solid black;
+  text-align: center;
+  background-color: black;
+  z-index: 4000;
+}
+
+
+@media(min-width:609px){
+  .dropdown-bar{
+    display: none;
+  }
+}
+
+ .dropdown-bar li{
+  list-style: none;
+  margin: 15px;
+}
+
+.dropdown-bar li a{
+  text-decoration: none;
+  color: white;
+  font-weight: 800;
+  margin: 15px;
+  transition: all .50s;
+}
+
+ .dropdown-bar li a:hover{
+  color: orangered;
+}
+  
+  
+/**CLASSLIST TO MAKE DROPDOWN VISIBLE ON MENU ICON CLICKED****/
+  .visible{
+    display: inline-block;
+    transition: all .50s;
+  }
+
+
+
+/**ABOUT SECTION***/
+#about{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+
+#about .about-wrapper>div{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.about-wrapper{
+  margin-top: 30px;
+}
+
+.about-content p{
+  width: 610px;
+}
+
+
+
+.about-title h1{
+  color: orangered;
+  font-weight: 900;
+}
+
+
+@media(max-width:605px){
+/**MEDIA SCREEN TO CHANGE PARAGRAPH WIDTH TO FIX OVERFLOW SCREEN***/
+  .about-content p{
+     width: 350px;
+  }
+}
+
+
+/***CREATE BALL EFFECT***/
+.ball{
+  width: 50px;
+  height: 50px;
+  background-color: #310e68;
+  background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+  border-radius: 50px;
+  animation: ball 5s;
+  animation-iteration-count: infinite;
+  animation-fill-mode:both;
+  opacity: .50;
+  position: absolute;
+}
+
+
+
+/***BALL ANIMATION****/
+
+@keyframes ball{
+  5%{transform: translate(100px,-50px);}
+  25%{transform: translate(106px, 60px);}
+  90%{transform: translate(110px, 150px);}
+  100%{opacity: .80;}
+}
+
+@keyframes ball2{
+  5%{transform: translate(-100px, -50px);}
+  25%{transform: translate(-120px, 60px);}
+  90%{transform: translate(-450px, 150px);}
+  100%{opacity: .80;}
+
+}
+
+
+/***ADD CURVED BORDER***/
+.custom-shape-divider-top-1709444820 {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+#devices{
+  background-color: rgb(244, 254, 109);
+}
+
+.device-title{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.device-title h1{
+  font-weight: 900;
+  color: rgba(128, 0, 128, 0.897);
+}
+
+.device-grid{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: 1fr;
+  padding-left: 20px;
+}
+
+.devices-text-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media(max-width:915px){
+  .devices-text-content{
+    display: none;
+  }
+
+  .device-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    padding-left: 20px;
+  }
+}
+
+.devices-text-content p{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+    /***ADD ANIMATOIN TO TEXT SHINE TOGGLE***/
+  animation: shine 3s ;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shine{
+  from{color: #310e68;}
+  to{color: rgb(225, 63, 90);}
+}
+
+.device-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/***MEDIA QUERY TO REDUCE SIZE OF PHONE ICON TO FIT SCREEN SIZE**/
+@media(max-width: 533px){
+  .device-icon{
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.dropdown-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.download-btn{
+  width: 200px;
+  height: 40px;
+  background-color: orangered !important;
+  transition: all .50s;
+  margin-bottom: 15px;
+}
+
+
+.download-btn:hover{
+  /**ADD HOVER EFFECT ON DOWNLOAD BTN***/
+  background-color: rgb(165, 49, 7) !important;
+}
+
+.fa-icons{
+  margin-left: 30px;
+  color: white;
+}
+
+.dropdown-item{
+  background-color: rgb(254, 119, 70) !important;
+  border: solid black 1px !important;
+  transition: all .50s;
+}
+
+.dropdown-item:hover{
+  background-color: orangered !important;
+
+}
+
+.dropdown-menu{
+  background-color: black !important;
+}
+
+
+.dropdown-menu li a{
+  color: white;
+}
+
+
+/***PRODUCT SECTION***/
+.product-title{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.product-title h1{
+  text-align: center;
+}
+
+.product-title h1{
+  font-weight: 900;
+  color: #5f0f40;
+}
+
+.product-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+/****CARD SECTION****/
+
+
+#card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.card-box{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: 1fr;
+  grid-gap: 30px;
+}
+
+.card-grid{
+  list-style: none;
+  width: 330px;
+  height: 450px;
+  padding-left: 25px;
+  padding-top: 50px;
+  margin-top: 20px;
+  background-color: rgb(246, 225, 93);
+  transition: all .10s;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.card-grid:hover{
+  border: solid rgb(161, 132, 12);
+  box-shadow: 2px 2px 3px rgb(161, 132, 12) ;
+}
+
+.card-title{
+  width: 300px;
+}
+
+.card-title h1{
+  color: #310e68;
+}
+
+
+.card-sub-title{
+  width: 200px;
+}
+
+.card-link{
+  margin-top: 30px;
+}
+
+.card-link span{
+  margin-left: 10px;
+}
+
+.card-link2{
+  position: relative;
+  bottom: 25px;
+}
+
+/****MEDIA QUERY TO CHANGE GRID SO CARD CAN FIT SCREEN****/
+@media(max-width:1045px){
+  .card-box{
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+  }
+}
+
+
+
+/****FREQUENTLY ASKED QUESTIONS PAGE****/
+.faq-title{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.faq-title h1{
+  color: #5f0f40;
+}
+
+.accordion{
+  /***CHANGE HEIGHT OF ACCORDION PAGE IF NECESSARY***/
+}
+
+
+
+/***RESOURCES****/
+
+#resources{
+  background: linear-gradient(89.7deg, rgb(0, 32, 95) 2.8%, rgb(132, 53, 142) 97.8%);
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.resources-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  gap: 50px;
+}
+
+/***SET GRID TO CHANGE ON SMALLER DEVICES*** SO SCREEN DOESN'T OVERFLOW***/
+
+@media(max-width:942px){
+  .resources-grid{
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
+
+.resource-title{
+  display: flex;
+  justify-content: center;
+  font-weight: 900;
+  color: white;
+  font-size: 12px;
+}
+
+.use-eventbrite p a{
+  text-decoration: none;
+  color:white;
+}
+
+.use-eventbrite p{
+  text-align: center;
+}
+
+.use-eventbrite p a:hover{
+  color: rgb(104, 240, 253);
 }
